@@ -1,15 +1,25 @@
 {
-  outputs = {
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+  };
+
+  outputs = inputs @ {
     nixpkgs,
     flake-parts,
     ...
-  } @ args:
-    flake-parts.lib.mkFlake {inputs = args;} {
+  }:
+    flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
       perSystem = {pkgs, ...}: {
-        devShells.rust = import ./rust/flake.nix;
-        devShells.node  = import ./node/flake.nix;
-        devShells.dotnet = import ./dotnet/flake.nix;
+        devShells.default = with pkgs;
+          mkShell {
+            packages = [
+              nodejs
+              yarn-berry
+              python3
+            ];
+          };
       };
     };
 }
