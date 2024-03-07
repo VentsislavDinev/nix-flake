@@ -12,14 +12,9 @@
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
       perSystem = {pkgs, ...}: {
-        devShells.default = with pkgs;
-          mkShell {
-            packages = [
-              nodejs
-              yarn-berry
-              python3
-            ];
-          };
+        devShells.node = import ./node/default.nix {pkgs = pkgs;};
+        devShells.rust = import ./rust/default.nix {pkgs = pkgs;};
+        devShells.python = import ./python/default.nix {pkgs = pkgs;};
       };
     };
 }
