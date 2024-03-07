@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -e
+if [[ ! -d "/home/vdinev/nix-flake/node" ]]; then
+  echo "Cannot find source directory; Did you move it?"
+  echo "(Looking for "/home/vdinev/nix-flake/node")"
+  echo 'Cannot force reload with this script - use "direnv reload" manually and then try again'
+  exit 1
+fi
+
+# rebuild the cache forcefully
+_nix_direnv_force_reload=1 direnv exec "/home/vdinev/nix-flake/node" true
+
+# Update the mtime for .envrc.
+# This will cause direnv to reload again - but without re-building.
+touch "/home/vdinev/nix-flake/node/.envrc"
+
+# Also update the timestamp of whatever profile_rc we have.
+# This makes sure that we know we are up to date.
+touch -r "/home/vdinev/nix-flake/node/.envrc" "/home/vdinev/nix-flake/node/.direnv"/*.rc
