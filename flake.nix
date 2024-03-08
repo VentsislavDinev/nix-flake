@@ -17,6 +17,9 @@
         devShells.dotnet = import ./dotnet {pkgs = pkgs;};
         devShells.python = import ./python {pkgs = pkgs;};
         devShells.c = import ./c {pkgs = pkgs;};
+        devShells.php = import ./php {pkgs = pkgs;};
+        devShells.postgresql = import ./postgresql {pkgs = pkgs;};
+        devShells.docker = import ./docker {pkgs = pkgs;};
       };
     };
 }
