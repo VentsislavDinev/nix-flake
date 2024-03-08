@@ -16,6 +16,7 @@
         devShells.rust = import ./rust {pkgs = pkgs;};
         devShells.dotnet = import ./dotnet {pkgs = pkgs;};
         devShells.python = import ./python {pkgs = pkgs;};
+        devShells.c = import ./c {pkgs = pkgs;};
       };
     };
 }
