@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "dgSpecHash": "/eOepy1StkGYHpNyQaSDmzeT+sEyF995xw8mZT8lcPplmDvvh47nTIuL0eT932M46O6KHseMb/0rD6AEkvAklA==",
+  "success": true,
+  "projectFilePath": "/home/vdinev/nix-flake/dotnet/dotnet.csproj",
+  "expectedPackageFiles": [],
+  "logs": []
+}

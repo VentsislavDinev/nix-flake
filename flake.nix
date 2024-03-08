@@ -13,8 +13,9 @@
       systems = ["x86_64-linux"];
       perSystem = {pkgs, ...}: {
         devShells.node = import ./node {pkgs = pkgs;};
-        devShells.rust = import ./rust/default.nix {pkgs = pkgs;};
-        devShells.python = import ./python/default.nix {pkgs = pkgs;};
+        devShells.rust = import ./rust {pkgs = pkgs;};
+        devShells.dotnet = import ./dotnet {pkgs = pkgs;};
+        devShells.python = import ./python {pkgs = pkgs;};
       };
     };
 }

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "angular": "^1.8.3",
+    "react": "^18.2.0"
+  }
+}
